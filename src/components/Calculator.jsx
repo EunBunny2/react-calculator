@@ -5,6 +5,7 @@ import Panel from "./Panel";
 import Display from "./Display";
 import ButtonGroup from "./ButtonGroup";
 import Button from "./Button";
+import History from "./History";
 
 const Container = styled.div`
   margin: 30px auto;
@@ -164,7 +165,8 @@ class Calculator extends React.Component {
           </ButtonGroup>
         </Panel>
         {/* TODO: History componet를 이용해 map 함수와 Box styled div를 이용해 history 표시 */}
-
+	<History>
+	</History>
       </Container>
     );
   }
