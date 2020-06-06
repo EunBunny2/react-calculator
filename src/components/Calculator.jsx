@@ -57,7 +57,12 @@ class Calculator extends React.Component {
       // TODO: 제곱근 구현
       "√": () => {},
       // TODO: 사칙연산 구현
-      "÷": () => {},
+      "÷": () => {
+	 if (lastChar !== "" && !operatorKeys.includes(lastChar)) {
+         this.setState({ displayValue: displayValue + "÷" });
+        }
+
+      },
       "×": () => {
 	 if (lastChar !== "" && !operatorKeys.includes(lastChar)) {
          this.setState({ displayValue: displayValue + "x" });
@@ -79,6 +84,7 @@ class Calculator extends React.Component {
           displayValue = displayValue.substr(0, displayValue.length - 1);
         } else if (lastChar !== "") {
 	  displayValue = displayValue.replace(/x/gi,"*");
+	  displayValue = displayValue.replace(/÷/gi,"/");
           displayValue = evalFunc(displayValue);
         }
         this.setState({ displayValue });
